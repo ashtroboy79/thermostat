@@ -22,6 +22,14 @@ class thermoStat {
     }
   }
   
+  switchPowerSaveOff() { 
+    this.powersave = false
+  }
+
+  resetTemp() { 
+    this.currentTemp = thermoStat.START_TEMPERATURE
+  }
+  
   static START_TEMPERATURE = 20;
   static MINIMUM_TEMPERATURE = 10;
   static POWER_SAVE_MAX_TEMP = 25;

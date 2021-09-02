@@ -41,6 +41,17 @@ describe('themoStat', function() {
       thermostat.up()
     }
     expect(thermostat.currentTemp).toEqual(MaxTemp)
+  }) 
+
+  it('can turn power save off', () => {
+    thermostat.switchPowerSaveOff()
+    expect(thermostat.powersave).toBe(false)
+  })
+
+  it('can reset  to start temperature with reset()', () => {
+    thermostat.currentTemp = 22
+    thermostat.resetTemp()
+    expect(thermostat.currentTemp).toEqual(thermoStat.START_TEMPERATURE)
   })
     
 });
