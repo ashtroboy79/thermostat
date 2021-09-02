@@ -8,8 +8,12 @@ class thermoStat {
 
   up() {
     if (this.powersave && this.currentTemp < thermoStat.POWER_SAVE_MAX_TEMP) {
-    this.currentTemp++
+      this.currentTemp++
     }
+    else if (!this.powersave && this.currentTemp < thermoStat.MAX_TEMP) {
+      this.currentTemp++
+    }
+
   }
 
   down() {
@@ -21,4 +25,5 @@ class thermoStat {
   static START_TEMPERATURE = 20;
   static MINIMUM_TEMPERATURE = 10;
   static POWER_SAVE_MAX_TEMP = 25;
+  static MAX_TEMP = 32;
 }

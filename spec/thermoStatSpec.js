@@ -34,5 +34,13 @@ describe('themoStat', function() {
     expect(thermostat.currentTemp).toEqual(powersaveMaxTemp)
   })
   
+  it('has a maximum temperature of 32 when in not in powersave mode', () => {
+    MaxTemp = thermoStat.MAX_TEMP
+    thermostat.powersave = false
+    for (let i = 0; i < 13; i++){
+      thermostat.up()
+    }
+    expect(thermostat.currentTemp).toEqual(MaxTemp)
+  })
     
 });
