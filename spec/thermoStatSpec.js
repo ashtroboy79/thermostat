@@ -12,4 +12,18 @@ describe('themoStat', function() {
     thermostat.up()
     expect(thermostat.currentTemp).toEqual(thermoStat.START_TEMPERATURE + 1)
   })
+
+  it('decreases temperature with down()', () => {
+    thermostat.down()
+    expect(thermostat.currentTemp).toEqual(thermoStat.START_TEMPERATURE - 1)
+  })
+
+  it('temperature cannot decrease beyond 10', () => {
+    minimumTemp = thermoStat.MINIMUM_TEMPERATURE
+    for (let i = 0; i < 11; i++) { 
+      thermostat.down()
+    }
+    expect(thermostat.currentTemp).not.toBeLessThan(minimumTemp)
+  })
+    
 });
